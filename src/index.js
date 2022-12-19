@@ -1,18 +1,21 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './reducers/store/store';
-import App from './app/App';
-import './index.css';
+import { store } from './redux/store/Store';
+import { BrowserRouter } from 'react-router-dom';
+import SwitchRoutes from './containers/SwitchRoutes';
+import './styles/index.css';
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <SwitchRoutes />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
-reportWebVitals();
