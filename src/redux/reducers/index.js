@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { bookingReducer } from './Reducer'
+import { itemReducer } from './Reducer'
 
 export const rootReducer = combineReducers ({
-  bookingReducer,
+  itemReducer,
 });

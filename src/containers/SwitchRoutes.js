@@ -7,6 +7,7 @@ const SwitchRoutes = () => {
     <>
       <Routes>
         <Route path='/Y-Bookings' element={<App />} exact />
+
       </Routes>
     </>
   )
