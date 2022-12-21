@@ -1,45 +1,72 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { addItem } from './../redux/actions/actions';
-
+import { addItem } from '../redux/actions/actions';
 
 const ItemPost = () => {
+
   const dispatch = useDispatch();
-  
-  const [item_name, setName] = useState('');
+
+  const [name, setName] = useState('');
+  const [images, setimages] = useState('');
+  const [fee, setfee] = useState('');
+  const [description, setdescription] = useState('');
+  const [validated, setValidated] = useState(false);
 
   const onNameChange = (e) => setName(e.target.value);
+  const onImageChange = (e) => setimages(e.target.files[0]);
+  const onFeeChange = (e) => setfee(e.target.value);
+  const ondesChange = (e) => setdescription(e.target.value);
 
 
-  const handleSubmit = event => {
+
+  const handleSubmit = (e) => {
     const formData = new FormData();
-    formData.append('item_name', item_name);
+    formData.append('item_name', name);
+    formData.append('image_url', images);
+    formData.append('item_fee', fee);
+    formData.append('item_description', description);
 
-    dispatch(addNewCourses(formData));
-
-    event.preventDefault();
-
-    const user = {
-      name: this.state.name
-    };
-
-    axios.post(`http://127.0.0.1:3000/booking_menu_items`, { user })
-      .then(res => {
-        console.log(res);
-          console.log(res.data);
-        dispatch (addItem (res.data));
-      });
-  }
-
+   
+    dispatch(addItem(formData));
+    
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    setValidated(true);
+    setName('');
+    setimages('');
+    setfee('');
+    setdescription('');
+  };
+  
   return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate validated={validated}>
+        <h2 className="text-center page-title mb-4 text-uppercase">Add Items</h2>
           <label>
-            Person Name:
-            <input type="text" name="item_name" onChange={onNameChange} />
+            Item Name:
+            <input type="text" onChange={onNameChange} className='form-control' />
           </label>
-          <button type="submit">Add</button>
+
+          <label>
+            images:
+            <input type="file" accept="image/*" onChange={onImageChange} className='form-control' />
+          </label>
+
+          <label>
+            Item fee:
+            <input type="text" onChange={onFeeChange} className='form-control' />
+          </label>
+
+          <label>
+            Item description:
+            <input type="text" onChange={ondesChange} className='form-control' />
+          </label>
+
+          <button type="submit" className=' d-block my-3 btn btn-success'>Add</button>
+
         </form>
     </>
   )

@@ -1,6 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { itemReducer } from './Reducer'
+import { itemReducer, addItemReducer } from './Reducer'
 
 export const rootReducer = combineReducers ({
   itemReducer,
+  addItemReducer,
 });

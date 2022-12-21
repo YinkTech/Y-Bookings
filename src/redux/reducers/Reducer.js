@@ -13,11 +13,17 @@ export const itemReducer = (state = inistialState, {type, payload}) => {
   };
 };
 
-export const addItemReducer = (state= inistialState, {type, payload}) => {
+
+
+export const addItemReducer = (state = inistialState, {type, payload}) => {
   switch (type) {
-    case ActionTypes.ADD_ITEMS:
-      return {...state, items: payload};
+    case ActionTypes.ADD_ITEM:
+      return {
+        ...state,
+        items:payload
+      };
     default:
       return state
   };
 };
+
