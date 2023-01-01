@@ -1,0 +1,56 @@
+.login-body {
+  background: #273343;
+}
+
+.sign-body {
+  background: #273343;
+}
+
+
+.logo-prev {
+  text-align: center;
+}
+
+.username-input {
+  border: 1px solid #637394;
+  background: #273343;
+  height: 50px;
+  width: -webkit-fill-available;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.username-input::placeholder {
+  color: #637394;
+}
+
+.username-input:focus {
+  outline: none;
+}
+
+.sign-up {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #637394;
+  text-transform: capitalize;
+}
+
+.sign-up:hover {
+  padding: 10px;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  color: #fff;
+}
+
+.login-button {
+  font-size: 20px;
+  font-weight: bolder;
+  background: #fac060;
+  width: -webkit-fill-available;
+  border: 1px solid #fac060;
+  border-radius: 10px;
+  height: 50px;
+  color: #fff;
+  text-transform: capitalize;
+}

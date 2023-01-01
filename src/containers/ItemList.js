@@ -17,12 +17,15 @@ const ItemList = () => {
   };
   useEffect(() => {
     fetchItem();
+  // eslint-disable-next-line
   }, []);
 
   return (
-    <>
+    <div className='total-list'>
+      <h3 className='sticky-top text-start p-2 profile-header'>Movie List</h3>
+      
     <Items />
-    </>
+    </div>
   )
 }
 

@@ -1,0 +1,36 @@
+.NavBar {
+  background: #273343;
+  width: -webkit-fill-available;
+}
+
+.footer {
+  background: #3a4c62;
+  width: -webkit-fill-available;
+  padding: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-text {
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.nav-text:hover {
+  color: #fac060;
+}
+
+
+.nav-text:active {
+  color: #fac060;
+}

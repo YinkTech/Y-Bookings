@@ -1,18 +1,20 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+import thor from './../img/thor.jpg'
 
 const Items = () => {
   const items = useSelector((state) => state.itemReducer.items);
 
   const renderList = items.map((item) => {
-    const {id, item_name, image_url, item_fee, item_description} = item;
+    const {id, item_name, image_url} = item;
       return  (
-        <div key={id}>
-          <h3>{item_name}</h3>
-          <img src={image_url} className="img-fluid" alt="" />
+        <div className='p-4 list-cont text-white' key={id}>
           
-          <h4>{item_fee}</h4>
-          <h5>{item_description}</h5>
+          <Link to={`/Details/${id}`}>
+            <img src={thor} alt={item_name} className="shadow list-img img-fluid" />
+            <h4 className='text-white text-start px-3 m-2'>{item_name}</h4> 
+          </Link>         
         </div>
       );
   });

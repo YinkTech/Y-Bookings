@@ -34,6 +34,7 @@ const ItemPost = () => {
       e.stopPropagation();
       e.preventDefault();
     }
+
     setValidated(true);
     setName('');
     setimages('');
@@ -42,33 +43,34 @@ const ItemPost = () => {
   };
   
   return (
-    <>
-        <form onSubmit={handleSubmit} noValidate validated={validated}>
-        <h2 className="text-center page-title mb-4 text-uppercase">Add Items</h2>
-          <label>
-            Item Name:
-            <input type="text" onChange={onNameChange} className='form-control' />
+    <div className='add-list'>
+        <form className='p-4' onSubmit={handleSubmit} noValidate validated={validated}>
+        <h3 className='sticky-top p-2 profile-header'> Add Movie </h3>
+      
+          <label className='d-block m-3'>
+            Movie Title:
+            <input type="text" onChange={onNameChange} className='form-control my-2' />
           </label>
 
-          <label>
-            images:
-            <input type="file" accept="image/*" onChange={onImageChange} className='form-control' />
+          <label className='d-block m-3'>
+            Movie Images:
+            <input type="file" accept="image/*" onChange={onImageChange} className='form-control my-2' />
           </label>
 
-          <label>
-            Item fee:
-            <input type="text" onChange={onFeeChange} className='form-control' />
+          <label className='d-block m-3'>
+            Movie Price:
+            <input type="text" onChange={onFeeChange} className='form-control my-2' />
           </label>
 
-          <label>
-            Item description:
-            <input type="text" onChange={ondesChange} className='form-control' />
+          <label className='d-block m-3'>
+            Movie Description:
+            <input type="text" onChange={ondesChange} className='form-control my-2' />
           </label>
 
-          <button type="submit" className=' d-block my-3 btn btn-success'>Add</button>
+          <button type="submit" className=' d-block btn login-button m-5'>Add</button>
 
         </form>
-    </>
+    </div>
   )
 }
 

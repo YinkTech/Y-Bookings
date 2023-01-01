@@ -8,6 +8,20 @@ export const setItem = (items) => {
   };
 };
 
+export const selectedMarket = (item) => {
+  return {
+    type: ActionTypes.SELECTED_ITEM,
+    payload: item,
+  };
+};
+
+export const removeSelecteditem = () => {
+  return {
+    type: ActionTypes.REMOVE_SELECTED_ITEM,
+  };
+};
+
+
 export const addItem = (item) => async (dispatch) => {
   const received = await addItems(item);
   if (received) {
