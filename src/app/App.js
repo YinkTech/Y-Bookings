@@ -1,6 +1,7 @@
 import React from 'react';
 import blackpanther from './../img/p2-1173714-1671605998.png'
 import kgf from './../img/K.G.F_Chapter_2.jpg'
+import ItemList from '../containers/ItemList';
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <img src={blackpanther} alt="" className="img-fluid" />
         <h1 className='border rounded'>content</h1>
         <img src={kgf} alt="" className="img-fluid" />
-        
+        <div>
+          
+        </div>
+        <ItemList />
       </div>
       {/* <div className='slider_group w-50 align-self-center p-3'>
         <h1 type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" >

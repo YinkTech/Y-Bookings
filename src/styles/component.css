@@ -26,9 +26,11 @@
 
 .profile-header {
   color: #fac060;
+  width: fit-content;
 }
 
 .profile-list {
   border-radius: 10px;
   align-items: center;
 }
+

@@ -12,7 +12,7 @@ import Profile from '../components/Profile'
 
 const SwitchRoutes = () => {
   return (
-    <div className='full-body'>
+  <div className='full-body'>
   <div className='home'>
     <NavBar />
       <Routes>

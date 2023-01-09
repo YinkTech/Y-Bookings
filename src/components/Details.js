@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { selectedMarket, removeSelecteditem } from '../redux/actions/actions';
@@ -25,6 +25,7 @@ const Details = () => {
     return () => {
       dispatch(removeSelecteditem());
     };
+    // eslint-disable-next-line
   }, [itemid]);
 
   return (
@@ -36,12 +37,16 @@ const Details = () => {
       </Link>
 
       <div className='p-2 p-md-4'>
+
       <img src={thor} alt={thor} className='img-fluid img-details' />
-      <h2>{item_name}</h2>
+     <div className='d-flex align-items-center my-2 justify-content-between'>
+        <h1>{item_name}</h1>
+        <h6>{item_fee}</h6>
+     </div>
 
       <div>
         <h4>Summary</h4>
-          <p className='item'>
+          <p className='item text-secondary'>
             {item_description}
           </p>
 
