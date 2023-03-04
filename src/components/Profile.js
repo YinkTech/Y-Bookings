@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import jwtDecode from 'jwt-decode';
 
 const Profile = () => {
+  const logged = window.localStorage.getItem('isLoggedIn');
+  const [OnName, setName] = useState({
+    username: ''
+  })
+  useEffect(() => {
+    if (logged === "true") {
+      let jwt = window.localStorage.getItem('jwt');
+      let result = jwtDecode(jwt);
+      setName({username: result.username});
+      }
+  }, [setName]);
+
   return (
     <div className='profile p-2 '>
       <h3 className='sticky-top p-2 profile-header'>My Profile</h3>
@@ -9,7 +22,7 @@ const Profile = () => {
       <div className='d-flex mb-4 profile-list shadow m-3 p-2'>
         <i className='bi bi-person-workspace mx-2 fs-3'> </i>
          <div className='mx-3'>
-          <b>name</b>
+          <b className='text-capitalize'>{OnName.username} </b>
           <small className='d-block text-muted'> View Profile </small>
          </div> 
       </div>
@@ -17,7 +30,7 @@ const Profile = () => {
       <div className='d-flex mb-4 profile-list shadow m-3 p-2'>
         <i className='bi bi-ticket-detailed mx-2 fs-3'> </i>
          <div className='mx-3'>
-          <b>My Tickets</b>
+          <b>Check Tickets</b>
           <small className='d-block text-muted'>View your tickets</small>
          </div> 
       </div>
@@ -33,7 +46,7 @@ const Profile = () => {
         </div>
       </Link>
       
-      <Link className='text-white' to={`/login`}>
+      <Link className='text-white' to={`/sign-in`}>
         <div className='d-flex mb-4 profile-list shadow m-3 p-2'>
           <i className='bi bi-box-arrow-in-left mx-2 fs-3'> </i>
           <div className='mx-3'>

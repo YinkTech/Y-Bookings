@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import App from '../app/App'
-import Login from '../app/Login'
-import Signup from '../app/Signup'
+import App from './App'
+import Login from '../components/Login'
+import Signup from '../components/Signup'
 import ItemList from './ItemList'
 import ItemPost from './ItemPost'
 import NavBar from '../components/NavBar';
@@ -16,7 +16,7 @@ const SwitchRoutes = () => {
   <div className='home'>
     <NavBar />
       <Routes>
-        <Route path='/login' element={<Login />} exact />
+        <Route path='/sign-in' element={<Login />} exact />
         <Route path='/Sign-up' element={<Signup />} />
         <Route path='/Y-Bookings' element={<App />} />
         <Route path='/list' element={<ItemList />} />

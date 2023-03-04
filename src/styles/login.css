@@ -1,11 +1,10 @@
+.Sign-body {
+  background: #273343;
+}
+
 .login-body {
   background: #273343;
 }
-
-.sign-body {
-  background: #273343;
-}
-
 
 .logo-prev {
   text-align: center;
@@ -17,12 +16,12 @@
   height: 50px;
   width: -webkit-fill-available;
   border-radius: 10px;
-  color: #fff;
+  color: #fac060;
   text-align: center;
 }
 
 .username-input::placeholder {
-  color: #637394;
+  color: #fac060;
 }
 
 .username-input:focus {
