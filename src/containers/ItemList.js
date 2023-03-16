@@ -9,7 +9,7 @@ const ItemList = () => {
   
   const fetchItem = async () => {
     const response = await axios
-    .get(`http://127.0.0.1:3000/booking_menu_items`)
+    .get(`http://127.0.0.1:3000/movies`)
     .catch((err) => {
       console.log("err", err)
     });
@@ -22,7 +22,7 @@ const ItemList = () => {
 
   return (
     <div className='total-list'>
-      <h3 className='sticky-top text-start p-2 profile-header'>Movie List</h3>
+      <h3 className=' text-start p-2 profile-header'>Movie List</h3>
       
     <Items />
     </div>

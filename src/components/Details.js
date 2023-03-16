@@ -3,17 +3,18 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { selectedMarket, removeSelecteditem } from '../redux/actions/actions';
-import thor from './../img/thor.jpg';
+import PostReviews from './PostReviews';
+import ViewReviews from './ViewReviews';
 
 const Details = () => {
   const item = useSelector((state) => state.selectedItemReducer);
-  const { item_name, item_fee, item_description } = item;
+  const { title, image, description, genre, release, Rating, runtime, language, stars, studio } = item;
   const { itemid } = useParams();
   const dispatch = useDispatch();
 
   const fetchItemDetail = async() => {
     const response = await axios
-    .get(`http://127.0.0.1:3000/booking_menu_items/${itemid}`)
+    .get(`http://127.0.0.1:3000/movies/${itemid}`)
     .catch((err) => {
       console.log("Err ", err);
     });
@@ -30,7 +31,7 @@ const Details = () => {
 
   return (
     <div>
-      <h3 className='sticky-top p-2 profile-header'>Movie Details</h3>
+      <h3 className='p-2 profile-header'>Movie Details</h3>
       
       <Link to='/list'>
         <button className="btn text-warning d-block fw-bolder fs-3 px-2 py-0 text-capitalize"> <i className="bi bi-backspace"></i> </button>
@@ -38,20 +39,37 @@ const Details = () => {
 
       <div className='p-2 p-md-4'>
 
-      <img src={thor} alt={thor} className='img-fluid img-details' />
-     <div className='d-flex align-items-center my-2 justify-content-between'>
-        <h1>{item_name}</h1>
-        <h6>{item_fee}</h6>
+      <img src={image} alt={title} className='img-fluid img-details' />
+     <div className='d-flex   my-2 justify-content-between'>
+        <div>
+        <h1 className='fw-bolder'>{title}</h1>
+        <h6>{genre} | {language} </h6><h6> {release} | {runtime}</h6>
+        </div>
+        <h6> Rating: {Rating} </h6>
      </div>
 
       <div>
-        <h4>Summary</h4>
-          <p className='item text-secondary'>
-            {item_description}
+        <h4 className='fw-bold'>Summary</h4>
+          <p className='item text-light'>
+            {description}
           </p>
+
+          <h6 className='fw-light text-muted mt-5'> {studio} </h6>
+          <h6 className='fw-light text-muted mb-5'> {stars} </h6>
 
           <button className='btn login-button'>Book Now</button>
 
+      </div>
+
+      <div className="container my-4 p-3 rounded shadow" style={{background: '#35455a9f'}}>
+        <h4 className='fw-bold'>Comments</h4>
+        <div>
+          <PostReviews current_movie={title}  itemid={itemid} />
+
+          <hr />
+
+          <ViewReviews itemid={itemid} />
+        </div>
       </div>
     </div>
     </div>

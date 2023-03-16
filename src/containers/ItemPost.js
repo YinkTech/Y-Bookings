@@ -1,5 +1,5 @@
 import React, {  useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
 
 const ItemPost = () => {
@@ -72,9 +72,9 @@ const ItemPost = () => {
       else if (!image) {
         return errorMessage('Choose an image');
      }
-      fetch("localhost/houses",
+      fetch("http://127.0.0.1:3000/movies",
           {method: 'POST', body: formData})
-          .then(res => (res.json(), console.log('add successfully'), navigate("/properties")))
+          .then(res => (res.json(), console.log('add successfully'), navigate("/list")))
           .catch(function(error){console.log('there is an error: ', error.message)});
   }
 
@@ -84,6 +84,8 @@ const ItemPost = () => {
     <div className='add-list'>
         <form className='p-4' onSubmit={handleSubmit}>
         <h3 className='p-2 profile-header'> Add Movie </h3>
+
+          <div id='error-message' className='my-2 text-center'></div>
       
           <label className='d-block m-3'>
             Movie Title:
@@ -94,7 +96,6 @@ const ItemPost = () => {
             Movie Description:
             <textarea onChange={onDescription} placeholder='Describe the movie' className='form-control my-2' autoComplete='false' ></textarea>
           </label>
-
           
           <label className='d-block m-3'>
             Movie Stars:
@@ -130,13 +131,13 @@ const ItemPost = () => {
 
           <label className='d-block m-3'>
             Movie release:
-            <input type="text" hidden onChange={onRelease} className='form-control my-2' />
+            <input type="text" onChange={onRelease} className='form-control my-2' />
           </label>
 
 
           <label className='d-block m-3'>
             Movie Runtime:
-            <input type="text" hidden onChange={onRuntime} className='form-control my-2' />
+            <input type="text" onChange={onRuntime} className='form-control my-2' />
           </label>
 
           <button type="submit"  className=' d-block btn login-button m-5'>Add</button>
